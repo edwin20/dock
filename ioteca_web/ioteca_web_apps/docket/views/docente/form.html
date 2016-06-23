@@ -1,0 +1,51 @@
+<md-dialog aria-label="Form" ng-cloak class="main" md-theme="{{ dynamicTheme }}">
+    <form name='myform'>
+
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span ng-hide="docente.id == null">Editar </span>
+                    <span ng-hide="docente.id">Nueva </span>
+                    Categoria {{docente.id}} 
+                    
+                </h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-progress-circular layout-fill md-mode="indeterminate" ng-hide="true"></md-progress-circular>
+            <div class="md-dialog-content">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Catedra</label>
+                        <input ng-model="docente.catedra" required>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Institucion</label>
+                        <input ng-model="docente.institucion">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Lugar</label>
+                        <input ng-model="docente.lugar">
+                    </md-input-container> 
+                    <md-input-container  class="md-block" flex-gt-sm>
+                    <label>Categoria</label>
+                    <md-select ng-model="docente.tipo_categoria" required>
+                        <md-option value="AS">Asociado</md-option>
+                        <md-option value="AX">Auxiliar</md-option>
+                        <md-option value="P">Principal</md-option>
+                  </md-select>
+                </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="reset" ng-click="cancel()" class="md-raised">Cancel</md-button>
+            <md-button type="submit" ng-click="save()" class="md-raised md-primary" ng-disabled="!myform.$valid">
+            save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog> 
